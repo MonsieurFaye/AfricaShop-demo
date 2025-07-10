@@ -6,7 +6,7 @@ AfricaShop est une plateforme e-commerce moderne et élégante qui connecte les 
 
 ## 🚀 Démo en ligne
 
-Démo créée par Emmanuel FAYE*
+Démo créée par Emmanuel FAYE
 
 ## ✨ Fonctionnalités
 
