@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AfricaShop - Plateforme e-commerce africaine</title>
+    <meta name="description" content="Découvrez les meilleurs produits africains : vêtements, artisanat et cosmétiques naturels. Soutenez les artisans africains avec AfricaShop.">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header-main">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
+            <div class="container">
+                <!-- Logo -->
+                <a class="navbar-brand d-flex align-items-center" href="#home">
+                    <img src="assets/images/africashop-logo.png" alt="AfricaShop" height="50" class="me-2">
+                    <div>
+                        <h4 class="mb-0 text-primary fw-bold">AfricaShop</h4>
+                        <small class="text-muted">Artisanat Authentique</small>
+                    </div>
+                </a>
+
+                <!-- Mobile menu toggle -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Navigation -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <!-- Search bar -->
+                    <div class="mx-auto d-none d-lg-flex">
+                        <div class="input-group search-bar">
+                            <input type="text" class="form-control" placeholder="Rechercher des produits..." id="searchInput">
+                            <button class="btn btn-outline-primary" type="button" id="searchBtn">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Menu items -->
+                    <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#categories">Catégories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#products">Produits</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">À propos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-outline-primary position-relative" data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="cartCount">0</span>
+                        </button>
+                    </li>
+                </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center min-vh-100 pt-5">
+                <div class="col-lg-6">
+                    <div class="hero-content">
+                        <h1 class="display-4 fw-bold text-white mb-4">
+                            Découvrez l'Afrique <span class="text-accent">Authentique</span>
+                        </h1>
+                        <p class="lead text-white-50 mb-4">
+                            Vêtements, artisanat et cosmétiques naturels directement des artisans africains vers le monde entier.
+                        </p>
+                        <div class="d-flex flex-column flex-sm-row gap-3">
+                            <button class="btn btn-accent btn-lg px-4" onclick="scrollToSection('products')">
+                                <i class="fas fa-shopping-bag me-2"></i>Explorer les Produits
+                            </button>
+                            <button class="btn btn-outline-light btn-lg px-4" data-bs-toggle="modal" data-bs-target="#vendorModal">
+                                <i class="fas fa-store me-2"></i>Devenir Vendeur
+                            </button>
+                        </div>
+                        
+                        <!-- Stats -->
+                        <div class="row mt-5">
+                            <div class="col-4 text-center">
+                                <h3 class="text-accent fw-bold">1000+</h3>
+                                <small class="text-white-50">Vendeurs</small>
+                            </div>
+                            <div class="col-4 text-center">
+                                <h3 class="text-accent fw-bold">10K+</h3>
+                                <small class="text-white-50">Produits</small>
+                            </div>
+                            <div class="col-4 text-center">
+                                <h3 class="text-accent fw-bold">50K+</h3>
+                                <small class="text-white-50">Clients</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="hero-image">
+                        <div class="row g-3">
+                            <div class="col-6">
+                                <div class="card hero-card">
+                                    <div class="card-body text-center">
+                                        <i class="fas fa-shipping-fast fa-2x text-primary mb-3"></i>
+                                        <h6 class="card-title">Livraison Mondiale</h6>
+                                        <p class="card-text small">Expédition dans 50+ pays</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="card hero-card mt-4">
+                                    <div class="card-body text-center">
+                                        <i class="fas fa-certificate fa-2x text-primary mb-3"></i>
+                                        <h6 class="card-title">Qualité Garantie</h6>
+                                        <p class="card-text small">Produits authentiques certifiés</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="card hero-card">
+                                    <div class="card-body text-center">
+                                        <i class="fas fa-handshake fa-2x text-primary mb-3"></i>
+                                        <h6 class="card-title">Commerce Équitable</h6>
+                                        <p class="card-text small">Soutien direct aux artisans</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="card hero-card mt-4">
+                                    <div class="card-body text-center">
+                                        <i class="fas fa-headset fa-2x text-primary mb-3"></i>
+                                        <h6 class="card-title">Support 24/7</h6>
+                                        <p class="card-text small">Assistance permanente</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section id="categories" class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold text-primary">Nos Catégories</h2>
+                <p class="lead text-muted">Explorez notre sélection de produits africains authentiques</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card category-card h-100">
+                        <div class="card-img-wrapper">
+                            <img src="assets/images/vetement-1.jpg" class="card-img-top" alt="Vêtements Africains">
+                            <div class="card-overlay">
+                                <span class="badge bg-primary">2,500+ produits</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Vêtements Africains</h5>
+                            <p class="card-text">Découvrez notre collection de vêtements traditionnels et modernes, confectionnés par des artisans talentueux.</p>
+                            <button class="btn btn-outline-primary" onclick="filterProducts('vetements')">
+                                Explorer <i class="fas fa-arrow-right ms-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card category-card h-100">
+                        <div class="card-img-wrapper">
+                            <img src="assets/images/artisanat-1.jpg" class="card-img-top" alt="Artisanat & Décoration">
+                            <div class="card-overlay">
+                                <span class="badge bg-primary">1,800+ produits</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Artisanat & Décoration</h5>
+                            <p class="card-text">Objets d'art uniques, sculptures, bijoux et décoration pour votre intérieur.</p>
+                            <button class="btn btn-outline-primary" onclick="filterProducts('artisanat')">
+                                Explorer <i class="fas fa-arrow-right ms-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card category-card h-100">
+                        <div class="card-img-wrapper">
+                            <img src="assets/images/cosmetique-1.jpg" class="card-img-top" alt="Cosmétiques Naturels">
+                            <div class="card-overlay">
+                                <span class="badge bg-primary">900+ produits</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Cosmétiques Naturels</h5>
+                            <p class="card-text">Produits de beauté naturels à base d'ingrédients africains authentiques.</p>
+                            <button class="btn btn-outline-primary" onclick="filterProducts('cosmetiques')">
+                                Explorer <i class="fas fa-arrow-right ms-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold text-primary">Produits Vedettes</h2>
+                <p class="lead text-muted">Découvrez notre sélection des produits les plus populaires</p>
+            </div>
+            
+            <!-- Filter buttons -->
+            <div class="text-center mb-4">
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-outline-primary active" onclick="filterProducts('all')">Tous</button>
+                    <button type="button" class="btn btn-outline-primary" onclick="filterProducts('vetements')">Vêtements</button>
+                    <button type="button" class="btn btn-outline-primary" onclick="filterProducts('artisanat')">Artisanat</button>
+                    <button type="button" class="btn btn-outline-primary" onclick="filterProducts('cosmetiques')">Cosmétiques</button>
+                    <button type="button" class="btn btn-outline-primary" onclick="filterProducts('bijoux')">Bijoux</button>
+                    <button type="button" class="btn btn-outline-primary" onclick="filterProducts('sacs')">Sacs</button>
+                </div>
+            </div>
+            
+            <!-- Products grid -->
+            <div class="row g-4" id="productsGrid">
+                <!-- Products will be loaded here by JavaScript -->
+            </div>
+            
+            <div class="text-center mt-5">
+                <button class="btn btn-primary btn-lg" onclick="loadMoreProducts()">
+                    Voir Plus de Produits <i class="fas fa-plus ms-2"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold text-primary">Ce que disent nos clients</h2>
+                <p class="lead text-muted">Témoignages de nos clients et vendeurs satisfaits</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card testimonial-card h-100">
+                        <div class="card-body">
+                            <div class="stars mb-3">
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                            </div>
+                            <p class="card-text">"AfricaShop m'a permis de découvrir des produits authentiques d'une qualité exceptionnelle. Le service client est remarquable."</p>
+                            <div class="d-flex align-items-center">
+                                <div class="avatar bg-primary text-white rounded-circle me-3">M</div>
+                                <div>
+                                    <h6 class="mb-0">Marie Dubois</h6>
+                                    <small class="text-muted">Paris, France</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card testimonial-card h-100">
+                        <div class="card-body">
+                            <div class="stars mb-3">
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                            </div>
+                            <p class="card-text">"Amazing platform! I love supporting African artisans directly. The quality exceeded my expectations."</p>
+                            <div class="d-flex align-items-center">
+                                <div class="avatar bg-primary text-white rounded-circle me-3">J</div>
+                                <div>
+                                    <h6 class="mb-0">James Wilson</h6>
+                                    <small class="text-muted">Londres, UK</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card testimonial-card h-100">
+                        <div class="card-body">
+                            <div class="stars mb-3">
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                            </div>
+                            <p class="card-text">"En tant que vendeuse, j'ai pu faire connaître mes créations au monde entier. La plateforme est intuitive."</p>
+                            <div class="d-flex align-items-center">
+                                <div class="avatar bg-primary text-white rounded-circle me-3">F</div>
+                                <div>
+                                    <h6 class="mb-0">Fatou Diallo</h6>
+                                    <small class="text-muted">Dakar, Sénégal</small>
+                                    <span class="badge bg-success ms-2">Vendeur</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section id="newsletter" class="py-5 bg-primary text-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h3 class="fw-bold mb-3">Restez Connecté à l'Afrique</h3>
+                    <p class="mb-4">Inscrivez-vous à notre newsletter et découvrez en avant-première les dernières créations de nos artisans africains.</p>
+                </div>
+                <div class="col-lg-6">
+                    <form class="newsletter-form" id="newsletterForm">
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Votre adresse email" required>
+                            <button class="btn btn-accent" type="submit">
+                                <i class="fas fa-paper-plane me-2"></i>S'inscrire
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="d-flex align-items-center mb-3">
+                        <img src="assets/images/africashop-logo.png" alt="AfricaShop" height="40" class="me-2">
+                        <div>
+                            <h5 class="mb-0 text-white">AfricaShop</h5>
+                            <small class="text-muted">Artisanat Authentique</small>
+                        </div>
+                    </div>
+                    <p class="text-muted">AfricaShop connecte les artisans africains talentueux avec des clients du monde entier, promouvant le commerce équitable et l'authenticité culturelle.</p>
+                    <div class="social-links">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2">
+                    <h6 class="text-white mb-3">Boutique</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-muted text-decoration-none">Vêtements</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Artisanat</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Cosmétiques</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Bijoux</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Nouveautés</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2">
+                    <h6 class="text-white mb-3">Support</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="contact.html" class="text-muted text-decoration-none">Centre d'aide</a></li>
+                        <li><a href="contact.html" class="text-muted text-decoration-none">Contact</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Livraison</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Retours</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2">
+                    <h6 class="text-white mb-3">Entreprise</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="about.html" class="text-muted text-decoration-none">À propos</a></li>
+                        <li><a href="about.html" class="text-muted text-decoration-none">Notre Mission</a></li>
+                        <li><a href="about.html" class="text-muted text-decoration-none">Artisans</a></li>
+                        <li><a href="contact.html" class="text-muted text-decoration-none">Carrières</a></li>
+                        <li><a href="contact.html" class="text-muted text-decoration-none">Presse</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2">
+                    <h6 class="text-white mb-3">Contact</h6>
+                    <div class="contact-info">
+                        <p class="text-muted mb-2">
+                            <i class="fas fa-envelope me-2"></i>
+                            contact@africashop.com
+                        </p>
+                        <p class="text-muted mb-2">
+                            <i class="fas fa-phone me-2"></i>
+                            +33 1 23 45 67 89
+                        </p>
+                        <p class="text-muted">
+                            <i class="fas fa-map-marker-alt me-2"></i>
+                            Paris, France
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="my-4">
+            
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="text-muted mb-0">&copy; 2025 AfricaShop. Tous droits réservés.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <div class="payment-methods">
+                        <span class="text-muted me-3">Paiement sécurisé :</span>
+                        <i class="fab fa-cc-visa text-muted me-2"></i>
+                        <i class="fab fa-cc-mastercard text-muted me-2"></i>
+                        <i class="fab fa-cc-paypal text-muted me-2"></i>
+                        <i class="fab fa-cc-apple-pay text-muted"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Offcanvas -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="cartOffcanvas">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title">Panier d'achat</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div id="cartItems">
+                <p class="text-muted text-center">Votre panier est vide</p>
+            </div>
+            <div class="cart-total mt-4" id="cartTotal" style="display: none;">
+                <hr>
+                <div class="d-flex justify-content-between">
+                    <strong>Total: <span id="totalAmount">0.00 €</span></strong>
+                </div>
+                <button class="btn btn-primary w-100 mt-3" onclick="checkout()">
+                    <i class="fas fa-credit-card me-2"></i>Passer la commande
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Connexion</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="loginForm">
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Mot de passe</label>
+                            <input type="password" class="form-control" id="password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Se connecter</button>
+                    </form>
+                    <hr>
+                    <p class="text-center">Pas encore de compte ? <a href="#" data-bs-toggle="modal" data-bs-target="#registerModal" data-bs-dismiss="modal">S'inscrire</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div class="modal fade" id="registerModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Inscription</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="registerForm">
+                        <div class="mb-3">
+                            <label for="regName" class="form-label">Nom complet</label>
+                            <input type="text" class="form-control" id="regName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="regEmail" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="regEmail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="regPassword" class="form-label">Mot de passe</label>
+                            <input type="password" class="form-control" id="regPassword" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">S'inscrire</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Vendor Modal -->
+    <div class="modal fade" id="vendorModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Devenir Vendeur</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="text-center mb-4">
+                        <h4>Rejoignez notre communauté d'artisans</h4>
+                        <p class="text-muted">Vendez vos créations authentiques à une audience mondiale</p>
+                    </div>
+                    <form id="vendorForm">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="vendorName" class="form-label">Nom complet</label>
+                                <input type="text" class="form-control" id="vendorName" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="vendorEmail" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="vendorEmail" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="vendorCountry" class="form-label">Pays</label>
+                                <select class="form-select" id="vendorCountry" required>
+                                    <option value="">Sélectionnez votre pays</option>
+                                    <option value="senegal">Sénégal</option>
+                                    <option value="mali">Mali</option>
+                                    <option value="burkina">Burkina Faso</option>
+                                    <option value="ghana">Ghana</option>
+                                    <option value="nigeria">Nigeria</option>
+                                    <option value="kenya">Kenya</option>
+                                    <option value="maroc">Maroc</option>
+                                    <option value="autre">Autre</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="vendorCategory" class="form-label">Catégorie principale</label>
+                                <select class="form-select" id="vendorCategory" required>
+                                    <option value="">Sélectionnez une catégorie</option>
+                                    <option value="vetements">Vêtements</option>
+                                    <option value="artisanat">Artisanat</option>
+                                    <option value="cosmetiques">Cosmétiques</option>
+                                    <option value="bijoux">Bijoux</option>
+                                    <option value="sacs">Sacs et maroquinerie</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="vendorDescription" class="form-label">Décrivez votre activité</label>
+                            <textarea class="form-control" id="vendorDescription" rows="3" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Envoyer ma candidature</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+</body>
+</html>
+
